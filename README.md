@@ -1,35 +1,56 @@
-# Years Count Plugin
+# Years Count WordPress Plugin
 
-A simple plugin that displays the number of years since a specified date.
+A WordPress plugin that displays the number of years since a specified date.
 
 ## Features
 
 - Calculate years elapsed from any given date
-- Lightweight and easy to use
+- Easy shortcode integration
 - Customizable date input
+- Lightweight and fast
 
 ## Installation
 
-```bash
-npm install years-count-plugin
-```
+### Via WordPress Admin
+
+1. Download the plugin zip file
+2. Go to your WordPress admin dashboard
+3. Navigate to Plugins > Add New > Upload Plugin
+4. Choose the zip file and click "Install Now"
+5. Activate the plugin
+
+### Manual Installation
+
+1. Upload the `years-count` folder to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
 
 ## Usage
 
-```javascript
-import { yearsCount } from 'years-count-plugin';
+Use the shortcode in your posts, pages, or widgets:
 
-const startDate = new Date('2020-01-01');
-const years = yearsCount(startDate);
-console.log(`Years elapsed: ${years}`);
+```
+[years_count date="2020-01-01"]
+```
+
+### Shortcode Parameters
+
+- `date` - The start date in YYYY-MM-DD format (required)
+- `format` - Display format options (optional)
+
+### Examples
+
+```
+[years_count date="2020-01-01"]
+[years_count date="1990-05-15" format="detailed"]
 ```
 
 ## Development
 
 ### Prerequisites
 
-- Node.js (version 14 or higher)
-- npm
+- WordPress development environment
+- PHP 7.4 or higher
+- Basic knowledge of WordPress plugin development
 
 ### Setup
 
@@ -39,21 +60,22 @@ git clone https://github.com/chadfuse/years-count-plugin.git
 cd years-count-plugin
 ```
 
-2. Install dependencies:
+2. Copy to your WordPress plugins directory:
 ```bash
-npm install
+cp -r years-count-plugin /path/to/wordpress/wp-content/plugins/years-count
 ```
 
-3. Build the project:
-```bash
-npm run build
+3. Activate the plugin in your WordPress admin
+
+### File Structure
+
 ```
-
-### Scripts
-
-- `npm run build` - Build the project
-- `npm run test` - Run tests
-- `npm run dev` - Start development mode
+years-count/
+├── years-count.php          # Main plugin file
+├── includes/               # Plugin includes
+├── assets/                # CSS/JS files
+└── README.md              # This file
+```
 
 ## License
 
@@ -62,3 +84,7 @@ MIT
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Support
+
+For support, please create an issue on GitHub or contact the plugin author.
